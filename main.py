@@ -15,6 +15,8 @@ engine.setProperty('voice', voices[1].id)
 rate = engine.getProperty('rate')   # getting details of current speaking rate                     #printing current voice rate
 engine.setProperty('rate', 125)     # setting up new voice rate
 
+engine.say("Hi Joy!")
+print("Hi Joy! I am here for you now!")
 engine.say('I am your Cat')
 engine.say('What I can do for you?')
 engine.runAndWait()
@@ -52,6 +54,12 @@ def run_cat():
         print(time)
         talk('Current time is ' + time)
     elif 'who the heck is' in command:
+        person = command.replace('who the heck is', ' ')
+        info = wikipedia.summary(person, 2)
+        print(info)
+        talk(info)
+
+    elif 'tell me something about' in command:
         person = command.replace('who the heck is', ' ')
         info = wikipedia.summary(person, 2)
         print(info)
