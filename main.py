@@ -12,7 +12,7 @@ listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
-rate = engine.getProperty('rate')   # getting details of current speaking rate                     #printing current voice rate
+rate = engine.getProperty('rate')   # getting details of current speaking rate
 engine.setProperty('rate', 125)     # setting up new voice rate
 
 engine.say("Hi Joy!")
