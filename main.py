@@ -13,7 +13,7 @@ engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 rate = engine.getProperty('rate')   # getting details of current speaking rate
-engine.setProperty('rate', 125)     # setting up new voice rate
+engine.setProperty('rate', 135)     # setting up new voice rate
 
 engine.say("Hi Joy!")
 print("Hi Joy! I am here for you now!")
@@ -53,14 +53,20 @@ def run_cat():
         time = datetime.datetime.now().strftime('%H:%M %p')
         print(time)
         talk('Current time is ' + time)
+
     elif 'who the heck is' in command:
         person = command.replace('who the heck is', ' ')
         info = wikipedia.summary(person, 2)
         print(info)
         talk(info)
+    elif 'who the hell is' in command:
+        person = command.replace('who the hell is', ' ')
+        info = wikipedia.summary(person, 2)
+        print(info)
+        talk(info)
 
     elif 'tell me something about' in command:
-        person = command.replace('who the heck is', ' ')
+        person = command.replace('tell me something about', ' ')
         info = wikipedia.summary(person, 2)
         print(info)
         talk(info)
@@ -73,9 +79,10 @@ def run_cat():
         print(elements)
         talk(elements)
 
-    elif 'what' in command:
+    elif 'what is ' in command:
+        info = command.replace('what is', " ")
         browser = webdriver.Chrome('chromedriver.exe')
-        elements = browser.get("http://www.google.com/search?q="+ command + "&start")
+        elements = browser.get("http://www.google.com/search?q="+ info + "&start")
         # info = googlesearch.search(command, tld="co.in", num=10, stop=10, pause=2)
         print(elements)
         talk(elements)
@@ -99,11 +106,25 @@ def run_cat():
 
     elif 'are you single' in command:
         browser = webdriver.Chrome('chromedriver.exe')
-        elements = browser.get("https://www.instagram.com/p/CmheC7VLum0/")
-        print("Do you know her?")
-        talk("Do you know her?")
-        print("Because I do and I can contact her hahhahahaha")
-        talk("Because I do and I can contact her hahhahahaha")
+        # elements = browser.get("https://www.instagram.com/p/CmheC7VLum0/")
+
+        # print("Do you know her?")
+        # talk("Do you know her?")
+        # print("Because I do and I can contact her hahhahahaha")
+        # talk("Because I do and I can contact her hahhahahaha")
+        print("No I am not")
+        talk("No I am not")
+        elements = browser.get("https://www.instagram.com/p/Cl-mXDRrNAT/?hl=en")
+        print("But you can try her if you want")
+        talk("But you can try her if you want")
+
+    elif 'i love you' in command:
+        print("If I say yes, You will Say I wanna Fuck You, so No I don't love you, bout someone surely does")
+        talk("If I say yes, You will Say I wanna Fuck You, so No I don't love you, bout someone surely does")
+
+    elif "thank you" in command:
+        print("Aww That's so sweet.")
+        talk("Your most Welcome Joy!")
 
     elif 'goodbye' in command:
         print('See you Soon Joy !')
