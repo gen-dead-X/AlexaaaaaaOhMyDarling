@@ -3,7 +3,7 @@ import pyttsx3
 import pywhatkit
 import datetime
 import wikipedia
-import googlesearch
+# import googlesearch
 import pyjokes
 from selenium import webdriver
 
